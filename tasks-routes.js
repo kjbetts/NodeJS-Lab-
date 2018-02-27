@@ -4,7 +4,7 @@ var router = express.Router();
 
 var tasksDb = inMemoryDatabase();
 tasksDb.init([
-    { name: "Grant", course: "Front-End" }
+    { text: "Feed the cats" }
 ]);
 
 router.get("/tasks", function(req, res) {
@@ -13,8 +13,8 @@ router.get("/tasks", function(req, res) {
 
 router.post("/tasks", function(req, res) {
     var task = req.body;
-    tasksDb.create(tasks);
-    res.status(201).send(tasks);
+    tasksDb.create(task);
+    res.status(201).send(task);
 });
 
 router.delete("/tasks/:id", function(req, res) {
